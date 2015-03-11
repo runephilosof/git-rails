@@ -6,6 +6,11 @@ if [ -z "$old_ref" ]; then
   old_ref=`git rev-parse ORIG_HEAD`
 fi
 
+# If just cloned, then don't do anything.
+if [ "$old_ref" = "0000000000000000000000000000000000000000" ]; then
+  exit 0
+fi
+
 if [ -z "$new_ref" ]; then
   new_ref=`git rev-parse HEAD`
 fi
