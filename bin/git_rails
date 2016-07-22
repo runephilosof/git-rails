@@ -3,7 +3,9 @@ old_ref=$1
 new_ref=$2
 
 if [ -z "$old_ref" ]; then
-  old_ref=`git rev-parse ORIG_HEAD`
+  # Go one back in the reflog to get where we came from.
+  # Won't work if you are in a merge/cherry-pick/revert conflict or are bisecting/rebasing interactively.
+  old_ref=`git log HEAD@{1} -1 --pretty=%h`
 fi
 
 # If just cloned, then don't do anything.
