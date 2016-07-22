@@ -31,11 +31,11 @@ After you checkout a branch, if you realize your migrations or gems are messed u
 
 This is the same as running:
 
-`git_rails ORIG_HEAD HEAD`
+`git_rails $(git log HEAD@{1} --pretty=%h) HEAD`
 
-If you know what ref you are coming from and it isn't `ORIG_HEAD` use:
+If you know what ref you are coming from and it isn't the previous `reflog`, use:
 
-`git_rails [REF_YOU_JUST_CAME_FROM]`
+`git_rails [REF_YOU_JUST_CAME_FROM]` (`REF_YOU_JUST_CAME_FROM` might be `ORIG_HEAD`)
 
 Or if you really know what you are doing and you want to pretend like you are on a different branch you can do:
 
