@@ -31,7 +31,7 @@ After you checkout a branch, if you realize your migrations or gems are messed u
 
 This is the same as running:
 
-`git_rails $(git log HEAD@{1} --pretty=%h) HEAD`
+`git_rails HEAD@{1} HEAD`
 
 If you know what ref you are coming from and it isn't the previous `reflog`, use:
 
